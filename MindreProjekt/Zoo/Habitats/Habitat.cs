@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using AnimalLibrary;
 namespace HabitatLibrary
 {
@@ -9,7 +10,7 @@ namespace HabitatLibrary
         public int FoodSupply { get; set; }
         public string HabitatName { get; set; }
         public int NumberOfAnimals { get; set; }
-        public static List <Animal> Animals { get; set; }
+     
 
 
 
@@ -21,13 +22,7 @@ namespace HabitatLibrary
            
         }
 
-        public static void AddAnimalToHabitat(Animal animal, List<Animal> animallist)
-        {
-            animallist = new List<Animal>();
-            animallist.Add(animal);
-            Animals = animallist;
-
-        }
+      
         private static Habitat InitializeHabitat()
         {
             Console.WriteLine("Vad heter inhängnaden?");
@@ -38,41 +33,64 @@ namespace HabitatLibrary
             var foodsupply = int.Parse(Console.ReadLine());
 
             Habitat habitat = new Habitat(foodsource, foodsupply, name);
+            
             return habitat;
         }
 
         /// <summary>
         /// Adds a new habitat based on userinput
         /// </summary>
-        public static void AddHabitat()
+        public static Habitat AddHabitat() 
         {
             Console.WriteLine("\nVad för inhängnad vill du skapa?\n [1] Oas \n [2] Sjö/Vattenland \n [3] Skog/Grotta");
 
             Console.WriteLine("\n Skriv in siffran för den typ av inhängnad du vill skapa.");
-            var isNumber = int.TryParse(Console.ReadLine(), out var habitatchooser);
+            var isNumber = true;
+            var habitatchooser = 0;
+
+            do
+            {
+                if (!isNumber)
+                {
+                    Console.WriteLine("Ange endast en siffra mellan 1-3");
+                }
+
+                isNumber = int.TryParse(Console.ReadLine(), out habitatchooser);
+
+                if (habitatchooser >= 4 || habitatchooser <= 0)
+                {
+                    isNumber = false;
+                }
+
+            } while (!isNumber);
+
+            
+
            switch (habitatchooser){
                 case 1:
 
                     {
-                        var habitat = InitializeHabitat();
+                        var habitat = InitializeHabitat();                
                         Oasis oasis = new Oasis(habitat.FoodSource, habitat.FoodSupply, habitat.HabitatName);
-                    
-                        break;
+                        return oasis;
+                        
                     }
 
                 case 2:
                     {
                         var habitat = InitializeHabitat();
                         Water water = new Water(habitat.FoodSource, habitat.FoodSupply, habitat.HabitatName);
-                        break;
+                        return water;
+                        
                     }
                 case 3:
                     {
                         var habitat = InitializeHabitat();
                         ForestCave forestcave = new ForestCave(habitat.FoodSource, habitat.FoodSupply, habitat.HabitatName);
-                        break;
+                        return forestcave;
                     }
             }
+            return null;
 
         }
     }

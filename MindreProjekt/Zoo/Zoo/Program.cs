@@ -1,8 +1,9 @@
-﻿using HabitatLibrary;
-using AnimalLibrary;
-using PersonellLibrary;
+﻿using AnimalLibrary;
+using HabitatLibrary;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace Zoo
 {
@@ -10,7 +11,13 @@ namespace Zoo
     {
         static void Main(string[] args)
         {
-            Habitat.AddHabitat();
+            var habitatList = new List<Habitat>();
+            var exit = false;
+
+            while (!exit)
+            {
+                exit = MainMenu.Switch(habitatList);
+            }
         }
     }
 }
