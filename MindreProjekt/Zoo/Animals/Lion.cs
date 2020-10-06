@@ -4,7 +4,7 @@
     public class Lion:Animal
     {
 
-        public Lion(string species, int age, string name) : base(species, age, name)
+        public Lion(int age, string name) : base(age, name)
         {
         }
     }

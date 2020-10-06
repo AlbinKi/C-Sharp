@@ -4,9 +4,9 @@
     public class Elephant:Animal
     {
      
-        public Elephant(string species, int age, string name) : base(species, age, name)
+        public Elephant(int age, string name) : base(age, name)
         {
-            species = "Elefant";
+         
         }
     }
 

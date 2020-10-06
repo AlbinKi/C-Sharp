@@ -1,6 +1,7 @@
 ﻿using AnimalLibrary;
 using System;
 using System.Collections.Generic;
+using PersonellLibrary;
 namespace HabitatLibrary
 {
     public class Oasis : Habitat
@@ -8,7 +9,9 @@ namespace HabitatLibrary
   
         public Oasis(string foodsource, int foodsupply, string habitatname) : base(foodsource, foodsupply, habitatname)
         {
-           
+        
+
+            
         }
     }
 }

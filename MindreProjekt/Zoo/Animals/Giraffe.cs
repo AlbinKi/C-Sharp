@@ -4,7 +4,7 @@
    public class Giraffe:Animal
     {
     
-        public Giraffe(string species, int age, string name) : base(species, age, name)
+        public Giraffe(int age, string name) : base(age, name)
         {
         }
     }

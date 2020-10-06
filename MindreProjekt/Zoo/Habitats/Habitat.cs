@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using AnimalLibrary;
+using PersonellLibrary;
 namespace HabitatLibrary
 {
     public class Habitat
@@ -10,7 +12,12 @@ namespace HabitatLibrary
         public int FoodSupply { get; set; }
         public string HabitatName { get; set; }
         public int NumberOfAnimals { get; set; }
-     
+
+        public int NumberOfWorkers { get; set; }
+
+        public List<Animal> Animals { get; set; }
+        public List<Personell> Workers { get; set; }
+
 
 
 
@@ -19,7 +26,11 @@ namespace HabitatLibrary
             FoodSource = foodsource;
             FoodSupply = foodsupply;
             HabitatName = habitatname;
-           
+
+            Animals = new List<Animal>();
+            Workers = new List<Personell>();
+
+         
         }
 
       
@@ -93,5 +104,7 @@ namespace HabitatLibrary
             return null;
 
         }
+        
+        
     }
 }

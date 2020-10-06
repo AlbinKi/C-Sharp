@@ -11,13 +11,16 @@ namespace Zoo
     {
         static void Main(string[] args)
         {
-            var habitatList = new List<Habitat>();
+            var habitatlist = new List<Habitat>();
             var exit = false;
 
             while (!exit)
             {
-                exit = MainMenu.Switch(habitatList);
+                exit = MainMenu.Switch(habitatlist);
             }
+
+
+ 
         }
     }
 }

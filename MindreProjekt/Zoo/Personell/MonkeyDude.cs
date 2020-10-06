@@ -1,9 +1,9 @@
 ﻿namespace PersonellLibrary
 {
-    public class MonekyDude:Personell
+    public class MonkeyDude:Personell
     {
 
-        public MonekyDude(string name, int age) : base(name, age)
+        public MonkeyDude(string name, int age) : base(name, age)
         {
 
             Competence = "Kan klättra";

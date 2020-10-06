@@ -4,123 +4,123 @@ namespace AnimalLibrary
 {
     public class Animal
     {
-        public string Species { get; set; }
         public int Age { get; set; }
         public string Name { get; set; }
         public string Habitat { get; set; }
 
 
-        public Animal(string species, int age, string name)
+        public Animal(int age, string name)
         {
-            Species = species;
             Age = age;
             Name = name;
         }
 
 
-        /// <summary>
-        /// Frågar användan vilken typ av djur som ska skapas, körs bara om det finns tidigare skapade inhängnanden
-        /// </summary>
-        public static void NewAnimal()
-        {
-            Console.WriteLine("\nVad för djur vill du lägga till? \n[1] Apa \n[2] Björn \n[3] Delfin \n[4] Elefant \n[5] Giraff \n[6] Lejon \n[7] Pingvin");
 
-            Console.WriteLine("\nSkriv in siffran för den typ av inhängnad du vill skapa.");
-            var isNumber = int.TryParse(Console.ReadLine(), out var animalchooser);
-            switch (animalchooser)
+        private static Animal AssignAnimalProperties()
+        {
+            Console.WriteLine("Vad heter djuret?");
+            var name = Console.ReadLine();
+            Console.WriteLine("Hur gammalt är djuret?");
+            var age = int.Parse(Console.ReadLine());
+
+
+            Animal animal = new Animal(age, name);
+
+            return animal;
+        }
+
+
+        public static Animal AddWorker()
+        {
+            string[] animals = new string[7] { "Apa", "Björn", "Delfin", "Elefant", "Giraff", "Lejon", "Pingvin" };
+
+            for (int i = 0; i < animals.Length; i++)
+            {
+                Console.WriteLine($"[{i}] {animals[i]}");
+            }
+
+
+            Console.WriteLine("\n Skriv in siffran för den typ av skötare du vill lägga till.");
+            var isNumber = true;
+            var workerChooser = 0;
+
+            do
+            {
+                if (!isNumber)
+                {
+                    Console.WriteLine("Ange endast en siffra mellan 1-7");
+                }
+
+                isNumber = int.TryParse(Console.ReadLine(), out workerChooser);
+
+                if (workerChooser >= 8 || workerChooser <= 0)
+                {
+                    isNumber = false;
+                }
+
+            } while (!isNumber);
+
+
+
+            switch (workerChooser)
             {
                 case 1:
 
                     {
-                        var animaltype = "apan";
-                        var species = "Apa";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Monkey monkey = new Monkey(animal.Species, animal.Age, animal.Name);
-
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Monkey(animal.Age, animal.Name);
+                        return animal;
                     }
 
                 case 2:
                     {
-                        var animaltype = "Björnen";
-                        var species = "Björn";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Bear bear = new Bear(animal.Species, animal.Age, animal.Name);
-
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Bear(animal.Age, animal.Name);
+                        return animal;
                     }
+
                 case 3:
                     {
-                        var animaltype = "Delfinen";
-                        var species = "Delfin";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Dolphine dolphine = new Dolphine(animal.Species, animal.Age, animal.Name);
-
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Dolphine(animal.Age, animal.Name);
+                        return animal;
                     }
+
                 case 4:
                     {
-                        var animaltype = "Elefanten";
-                        var species = "Elefant";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Elephant elephant = new Elephant(animal.Species, animal.Age, animal.Name);
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Elephant(animal.Age, animal.Name);
+                        return animal;
                     }
 
                 case 5:
                     {
-                        var animaltype = "Giraffen";
-                        var species = "Giraff";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Giraffe giraffe = new Giraffe(animal.Species, animal.Age, animal.Name);
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Giraffe(animal.Age, animal.Name);
+                        return animal;
                     }
 
                 case 6:
                     {
-                        var animaltype = "Lejonet";
-                        var species = "Lejon";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Lion lion = new Lion(animal.Species, animal.Age, animal.Name);
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Lion(animal.Age, animal.Name);
+                        return animal;
                     }
+
                 case 7:
                     {
-                        var animaltype = "Pingvinen";
-                        var species = "Pingvin";
-
-                        var animal = CreateAnimal(animaltype, species);
-                        Penguin penguin = new Penguin(animal.Species, animal.Age, animal.Name);
-                        break;
+                        var animal = AssignAnimalProperties();
+                        animal = new Penguin(animal.Age, animal.Name);
+                        return animal;
                     }
             }
+            return null;
+
         }
 
-        /// <summary>
-        /// Låter användaren svara på frågor kring djuret för att sedan returnera ett djur. animaltype == djurets bestämda form  species == obestämd form
-        /// </summary>
-        /// <param name="animaltype"></param>
-        /// <param name="species"></param>
-        /// <returns></returns>
-        private static Animal CreateAnimal(string animaltype, string species)
-        {
-            Console.WriteLine($"Vad heter {animaltype}?");
-            var name = Console.ReadLine();
-            Console.WriteLine($"Hur gammal är {animaltype}");
-            var age = int.Parse(Console.ReadLine());
 
 
 
-            Animal animal = new Animal(species, age, name);
-            return animal;
-        }
-
-       
     }
 }

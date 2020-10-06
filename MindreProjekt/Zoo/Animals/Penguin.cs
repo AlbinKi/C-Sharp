@@ -3,10 +3,10 @@
    public class Penguin:Animal
     {
    
-        public Penguin(string species, int age, string name): base(species, age, name)
+        public Penguin(int age, string name): base(age, name)
         {
 
-            species = "Pingvin";
+            
         }
     }
 
