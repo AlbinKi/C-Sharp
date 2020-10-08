@@ -20,16 +20,11 @@ namespace ArvOchAbstraktion
             Vehicles.Add(vehicle);
         }
 
-        public  void RemoveVehicle()
+        public  void RemoveVehicle(Vehicle vehicle)
         {
-            foreach (var v in Vehicles)
-            {
-                Console.WriteLine(v.PropertyList()); 
-            }
+            Vehicles.Remove(vehicle);
+        } 
 
-            
-        }
-
-       
+        
     }
 }

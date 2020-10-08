@@ -1,12 +1,15 @@
-﻿namespace Klasser
+﻿using CustomAttribute;
+
+namespace Klasser
 {
-    class Motorcycle : Vehicle
+    public class Motorcycle : Vehicle
     {
+        [Translate("Maxhastighet", "km/h")]
         public int MaxSpeed { get; set; }
 
         public Motorcycle(string reg, string model, int weight, int meter, int maxspeed) : base(reg, model, weight, meter)
         {
-            maxspeed = MaxSpeed;
+            MaxSpeed = maxspeed;
         }
     }
 }

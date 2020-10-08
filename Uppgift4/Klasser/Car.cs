@@ -1,12 +1,22 @@
-﻿namespace Klasser
+﻿using CustomAttribute;
+
+namespace Klasser
 {
     public class Car : Vehicle
     {
-        public bool Towbar { get; set; }
+        [Translate ("Dragkrok", null)]
+        public string Towbar { get; set; }
 
         public Car(string reg, string model, int weight, int meter, bool towbar) : base(reg, model, weight, meter)
         {
-            Towbar = towbar;
+            if (towbar)
+            {
+                Towbar = "Ja";
+            } else
+            {
+                Towbar = "Nej";
+            }
+
         }
     }
 }

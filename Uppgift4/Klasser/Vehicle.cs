@@ -1,14 +1,20 @@
-﻿using System;
+﻿using CustomAttribute;
 using ExtensionMethods;
+using System;
 
 namespace Klasser
 {
-    public class Vehicle
+    public  class Vehicle
     {
+        [Translate("Registreringsnummer", null)]
         public string Reg { get; set; }
+        [Translate("Modell", null)]
         public string Model { get; set; }
+        [Translate("Tyngd", "kg")]
         public int Weight { get; set; }
+        [Translate("Mätaren", "mil")]
         public int Meter { get; set; }
+        [Translate("Lämnades in till verkstaden", null)]
         public DateTime RegisterDate { get; set; }
 
         public Vehicle(string reg, string model, int weight, int meter)
@@ -22,6 +28,7 @@ namespace Klasser
 
         private static Vehicle CreateVehicle(string vehicletype)
         {
+            Console.Clear();
             Console.WriteLine($"Ange {vehicletype}s registeringsnummer");
             var reg = Console.ReadLine();
             Console.WriteLine($"Ange {vehicletype}s modell");
@@ -36,16 +43,14 @@ namespace Klasser
 
         public static Vehicle GetVehicleToAdd()
         {
-            Console.WriteLine("[1] Bil");
+            Console.Clear();
+            Console.WriteLine("[1] Personbil");
             Console.WriteLine("[2] Buss");
             Console.WriteLine("[3] Motorcykel");
             Console.WriteLine("[4] Lastbil");
             var vehicleselector = Console.ReadLine().Parse<int>();
 
-            if (vehicleselector >= 5 || vehicleselector <= 0)
-            {
-                vehicleselector = Console.ReadLine().Parse<int>();
-            }
+         
 
             switch (vehicleselector)
             {
@@ -56,7 +61,7 @@ namespace Klasser
 
                         Console.WriteLine("Har bilen en dragkrok?");
 
-                        var towbar = Console.ReadLine().Parse<bool>();
+                        var towbar = Console.ReadLine().ToBool();
 
                         var car = new Car(vehicle.Reg, vehicle.Model, vehicle.Weight, vehicle.Meter, towbar);
                         return car;
@@ -90,11 +95,14 @@ namespace Klasser
                         var truck = new Truck(vehicle.Reg, vehicle.Model, vehicle.Weight, vehicle.Meter, maxload);
                         return truck;
                     }
+                default:
+                    {
+                        Console.WriteLine("Siffran du angav stämmer inte överens med något av valen, försök igen. Tryck på en knapp för att återgå till huvudmenyn");
+                        Console.ReadKey();
+                        return null;
+                    }                   
             }
 
-
-            return null;
         }
-
     }
 }
