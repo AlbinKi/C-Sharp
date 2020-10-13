@@ -1,8 +1,12 @@
 # C# projektuppgift
-För att uppnå godkänt betyg på denna uppgift behöver alla tekniska samt funktionella krav som inte ingår i betyget VG vara uppfyllda. För betyget VG krävs dessutom att alla tekniska och funktionella krav som specificerats under VG ocskå vara uppfyllda,
+För att uppnå godkänt betyg på denna uppgift behöver alla tekniska samt funktionella krav som inte ingår i betyget VG vara uppfyllda.
+För betyget VG krävs dessutom att alla tekniska och funktionella krav som specificerats under VG ocskå vara uppfyllda,
 
 ## Bosses Bilverkstad - Bakgrund
-Bosses bilverkstad har tidigare arbetat manuellt med administrativa uppgifter. Bosse har nu bestämt att ett system ska köpas in för att hjälpa till att effektivisera verksamheten. Exempel på uppgifter som Bosse vill kunna utföra i det nya systemet är att kunna lägga in nya ärenden, se vilka av hans bilmekaniker som är tillgängliga för ett ärende och kunna tilldela en bilmekaniker ett ärende baserat på dennes specialkompentenser. Er uppgift är nu att utveckla detta system till Bosse.
+Bosses bilverkstad har tidigare arbetat manuellt med administrativa uppgifter. Bosse har nu bestämt att ett system ska köpas in för att hjälpa till att effektivisera verksamheten.
+Exempel på uppgifter som Bosse vill kunna utföra i det nya systemet är att kunna lägga in nya ärenden, se vilka av hans bilmekaniker som är tillgängliga för ett ärende och kunna 
+tilldela en bilmekaniker ett ärende baserat på dennes specialkompentenser.
+Er uppgift är nu att utveckla detta system till Bosse.
 
 ## Tekniska krav
 Systemet ska utvecklas i C# där WPF ska användas för det grafiska gränssnittet och JSON för att lagra data.

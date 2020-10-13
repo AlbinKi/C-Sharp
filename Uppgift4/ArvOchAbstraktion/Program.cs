@@ -9,12 +9,17 @@ namespace ArvOchAbstraktion
     {
         static void Main(string[] args)
         {
+            int[] kk = new int[2] {0,2};
+
+
+            
             var exit = false;
             var verkstad = new Verkstad();
 
             while (!exit)
             {
                 Console.Clear();
+                Console.WriteLine(kk.Count());
                 Console.WriteLine("Huvudmeny");
                 Console.WriteLine("[1] Lägg till ett ny fordon i verkstaden");
                 Console.WriteLine("[2] Ta bort ett fordon från verkstaden");
