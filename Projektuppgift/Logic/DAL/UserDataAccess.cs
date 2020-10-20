@@ -19,11 +19,30 @@ namespace Logic.DAL
         /// <returns></returns>
         public List<User> GetUsers()
         {
+            StreamReader sr = new StreamReader(path);
 
-            string jsonString = File.ReadAllText(path);
+            string jsonString = sr.ReadToEnd();
             List<User> users = JsonSerializer.Deserialize<List<User>>(jsonString);
+            sr.Close();
 
             return users;
         }
+
+        public void AddUser(List<User> users)
+        {
+            StreamWriter sw = new StreamWriter(path);
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+
+            };
+
+            var jsonObject = JsonSerializer.Serialize(users, options);
+
+            sw.Write(jsonObject);
+            sw.Close();
+        }
+
     }
 }

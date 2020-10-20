@@ -10,6 +10,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic.Services;
+using Logic.Entities;
+
+using Logic.Services;
 
 namespace GUI.Home
 {
@@ -21,6 +25,7 @@ namespace GUI.Home
         public HomePage()
         {
             InitializeComponent();
+           
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GUI.Home;
+using Logic.Entities;
 using Logic.Services;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace GUI.Login
             InitializeComponent();
 
             _loginService = new LoginService();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,9 +41,8 @@ namespace GUI.Login
 
             if (successful)
             {
-
+           
                 HomePage homePage = new HomePage();
-
                 this.NavigationService.Navigate(homePage);
             }
             else

@@ -1,6 +1,6 @@
-﻿namespace PersonellLibrary
+﻿namespace Logic
 {
-    public class MonkeyDude:Personell
+    public class MonkeyDude:Employee
     {
 
         public MonkeyDude(string name, int age) : base(name, age)

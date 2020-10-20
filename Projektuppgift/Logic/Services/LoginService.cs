@@ -2,6 +2,8 @@
 using Logic.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace Logic.Services
@@ -22,6 +24,16 @@ namespace Logic.Services
             List<User> users = _db.GetUsers();
 
             return users.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));
+        }
+
+        public void AddUser(string userName, string password)
+        {
+            User user = new User();
+            user.Username = userName;
+            user.Password = password;
+            List<User> users = _db.GetUsers();
+            users.Add(user);
+            _db.AddUser(users);
         }
     }
 }
